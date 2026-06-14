@@ -1,0 +1,7 @@
+{
+  "scripts": {
+    "update:data": "python3 scripts/update_data.py",
+    "dev": "python3 -m http.server 5174",
+    "start": "python3 -m http.server 5174"
+  }
+}

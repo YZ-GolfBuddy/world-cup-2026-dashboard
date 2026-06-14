@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2026 世界杯赛程指挥台</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='29' fill='%2324583f'/%3E%3Cpath d='M32 8l8 15 16 3-12 12 3 17-15-8-15 8 3-17L8 26l16-3z' fill='%23fff'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <div class="hero-field" aria-hidden="true">
+          <div class="hero-board" id="heroBoard"></div>
+        </div>
+        <div class="hero-copy">
+          <p class="eyebrow">2026 FIFA World Cup</p>
+          <h1>赛程指挥台</h1>
+          <div class="quick-stats" id="quickStats"></div>
+        </div>
+      </section>
+
+      <section class="control-band" aria-label="赛程筛选">
+        <label class="search">
+          <span>搜索</span>
+          <input id="searchInput" type="search" placeholder="球队、场馆、城市" />
+        </label>
+        <div class="segmented" id="stageTabs" aria-label="阶段"></div>
+        <div class="segmented" id="groupTabs" aria-label="小组"></div>
+      </section>
+
+      <section class="layout">
+        <aside class="sidebar">
+          <section class="panel compact">
+            <div class="panel-head">
+              <h2>Polymarket 赔率</h2>
+              <span id="oddsStamp"></span>
+            </div>
+            <div class="odds-list" id="oddsList"></div>
+          </section>
+
+          <section class="panel compact">
+            <div class="panel-head">
+              <h2>小组积分</h2>
+              <select id="standingGroup" aria-label="选择小组"></select>
+            </div>
+            <div class="standings" id="standings"></div>
+          </section>
+        </aside>
+
+        <section class="main-column">
+          <section class="view-tabs" aria-label="内容切换">
+            <button class="active" data-view="schedule">赛程</button>
+            <button data-view="bracket">对阵图</button>
+            <button data-view="venues">场馆</button>
+          </section>
+
+          <section class="panel view-panel active" data-panel="schedule">
+            <div class="panel-head">
+              <h2>对战表</h2>
+              <span id="matchCount"></span>
+            </div>
+            <div class="matches" id="matches"></div>
+          </section>
+
+          <section class="panel view-panel" data-panel="bracket">
+            <div class="panel-head">
+              <h2>淘汰赛对阵图</h2>
+              <span>点击任意节点查看详情</span>
+            </div>
+            <div class="bracket" id="bracket"></div>
+          </section>
+
+          <section class="panel view-panel" data-panel="venues">
+            <div class="panel-head">
+              <h2>场馆热度</h2>
+              <span>按已安排场次统计</span>
+            </div>
+            <div class="venues" id="venues"></div>
+          </section>
+        </section>
+      </section>
+    </main>
+
+    <dialog class="team-dialog" id="teamDialog">
+      <button class="icon-button close" id="closeDialog" aria-label="关闭">×</button>
+      <div id="teamDetail"></div>
+    </dialog>
+
+    <footer class="sources" id="sources"></footer>
+
+    <script src="./data.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
